@@ -82,6 +82,9 @@ int main() {
                     cout << "Por favor, ingrese el numero segun la accion que desee:\n\n";
                     cout << "1. Leer\n\n";
                     cout << "2. Comentar\n\n";
+                    cout << "3. Listar noticias publicadas en el anio\n\n";
+                    cout << "4. Listar noticias publicadas el ultimo mes\n\n";
+                    cout << "5. Listar noticias por autor\n\n";
                     cin >> ingreso2;
                     cin.ignore();
                     switch (ingreso2) {
@@ -108,6 +111,20 @@ int main() {
                                 comentario.setUsuario(usuario);
                                 noticia[num].setComentarios(comentario);}
                             archivo.grabarNoticias(noticia, 5);
+                            break;
+                        case 3:
+                            cout << "Ingrese el año de las noticias que desea listar: " << endl;
+                            cin >> a;
+                            cin.ignore();
+                            archivo.listarNoticiasPorAño(a);
+                            break;
+                        case 4:
+                            archivo.listarNoticiasUltimoMes();
+                            break;
+                        case 5:
+                            cout << "Ingrese el nombre del autor cuyas noticias desea listar: " << endl;
+                            getline(cin, nombre);
+                            archivo.listarNoticiasPorAutor(nombre);
                             break;
                         default:
                             cout << "Opción invalida, por favor intente nuevamente." << endl;
